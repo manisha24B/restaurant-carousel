@@ -1,0 +1,583 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Restaurant</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #111;
+        }
+
+        /* MAIN CAROUSEL */
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 650px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        /* SLIDES */
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* DARK OVERLAY */
+
+        .slide::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.10),
+                    rgba(0,0,0,0.70)
+                );
+        }
+
+        /* TEXT */
+
+        .caption {
+            position: absolute;
+            z-index: 2;
+
+            left: 8%;
+            bottom: 16%;
+
+            max-width: 700px;
+
+            color: white;
+        }
+
+        .caption h1 {
+            font-size: clamp(36px, 5vw, 70px);
+            font-weight: 500;
+            letter-spacing: 1px;
+
+            margin-bottom: 15px;
+        }
+
+        .caption p {
+            font-size: clamp(17px, 2vw, 24px);
+            line-height: 1.5;
+        }
+
+        /* ARROWS */
+
+        .prev,
+        .next {
+            position: absolute;
+
+            top: 50%;
+            transform: translateY(-50%);
+
+            z-index: 5;
+
+            width: 50px;
+            height: 50px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(0,0,0,0.45);
+
+            color: white;
+
+            font-size: 30px;
+
+            cursor: pointer;
+
+            transition: background 0.3s;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: rgba(0,0,0,0.80);
+        }
+
+        .prev {
+            left: 25px;
+        }
+
+        .next {
+            right: 25px;
+        }
+
+        /* DOTS */
+
+        .dots {
+            position: absolute;
+
+            z-index: 5;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            gap: 9px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.55);
+
+            cursor: pointer;
+
+            transition: transform 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .carousel {
+                height: 500px;
+            }
+
+            .caption {
+                left: 7%;
+                right: 7%;
+                bottom: 14%;
+            }
+
+            .caption h1 {
+                font-size: 36px;
+            }
+
+            .caption p {
+                font-size: 16px;
+            }
+
+            .prev,
+            .next {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+
+            .prev {
+                left: 12px;
+            }
+
+            .next {
+                right: 12px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="carousel">
+
+
+    <!-- SLIDE 1 -->
+
+    <div class="slide active">
+
+        <img src="front.jpeg" alt="Restaurant exterior">
+
+        <div class="caption">
+
+            <h1>Welcome</h1>
+
+            <p>
+                An elegant dining experience
+                crafted for every occasion.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 2 -->
+
+    <div class="slide">
+
+        <img src="front2.jpeg" alt="Restaurant exterior">
+
+        <div class="caption">
+
+            <h1>Discover Our Restaurant</h1>
+
+            <p>
+                Where beautiful surroundings
+                meet exceptional flavours.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 3 -->
+
+    <div class="slide">
+
+        <img src="front3.jpeg" alt="Restaurant exterior">
+
+        <div class="caption">
+
+            <h1>A Place to Gather</h1>
+
+            <p>
+                Perfect for intimate dinners,
+                celebrations and special occasions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 4 -->
+
+    <div class="slide">
+
+        <img src="inner.jpeg" alt="Indoor dining">
+
+        <div class="caption">
+
+            <h1>Indoor Dining</h1>
+
+            <p>
+                Relax in our warm and inviting
+                indoor dining space.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 5 -->
+
+    <div class="slide">
+
+        <img src="inner2.jpeg" alt="Indoor restaurant">
+
+        <div class="caption">
+
+            <h1>Beautiful Ambience</h1>
+
+            <p>
+                Thoughtfully designed surroundings
+                for a memorable dining experience.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 6 -->
+
+    <div class="slide">
+
+        <img src="inner3.jpeg" alt="Restaurant interior">
+
+        <div class="caption">
+
+            <h1>Made for Moments</h1>
+
+            <p>
+                Enjoy delicious food in a
+                comfortable and elegant setting.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 7 -->
+
+    <div class="slide">
+
+        <img src="inner4.jpeg" alt="Restaurant interior">
+
+        <div class="caption">
+
+            <h1>Come, Dine & Savour</h1>
+
+            <p>
+                Every meal is an opportunity
+                to create a lasting memory.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 8 -->
+
+    <div class="slide">
+
+        <img src="out1.jpeg" alt="Alfresco dining">
+
+        <div class="caption">
+
+            <h1>Alfresco Dining</h1>
+
+            <p>
+                Dine under the open sky
+                and enjoy a relaxed atmosphere.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 9 -->
+
+    <div class="slide">
+
+        <img src="out2.jpeg" alt="Outdoor dining">
+
+        <div class="caption">
+
+            <h1>Under the Open Sky</h1>
+
+            <p>
+                An unforgettable outdoor dining
+                experience for every occasion.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 10 -->
+
+    <div class="slide">
+
+        <img src="out3.jpeg" alt="Outdoor restaurant">
+
+        <div class="caption">
+
+            <h1>Relax. Dine. Enjoy.</h1>
+
+            <p>
+                Choose your setting and
+                make your dining experience your own.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 11 -->
+
+    <div class="slide">
+
+        <img src="out4.jpeg" alt="Outdoor dining area">
+
+        <div class="caption">
+
+            <h1>Your Table Awaits</h1>
+
+            <p>
+                Come for the ambience.
+                Stay for the flavours.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PREVIOUS BUTTON -->
+
+    <button class="prev" onclick="changeSlide(-1)">
+        ‹
+    </button>
+
+
+    <!-- NEXT BUTTON -->
+
+    <button class="next" onclick="changeSlide(1)">
+        ›
+    </button>
+
+
+    <!-- DOTS -->
+
+    <div class="dots">
+
+        <span class="dot active" onclick="goToSlide(0)"></span>
+
+        <span class="dot" onclick="goToSlide(1)"></span>
+
+        <span class="dot" onclick="goToSlide(2)"></span>
+
+        <span class="dot" onclick="goToSlide(3)"></span>
+
+        <span class="dot" onclick="goToSlide(4)"></span>
+
+        <span class="dot" onclick="goToSlide(5)"></span>
+
+        <span class="dot" onclick="goToSlide(6)"></span>
+
+        <span class="dot" onclick="goToSlide(7)"></span>
+
+        <span class="dot" onclick="goToSlide(8)"></span>
+
+        <span class="dot" onclick="goToSlide(9)"></span>
+
+        <span class="dot" onclick="goToSlide(10)"></span>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll(".slide");
+
+    const dots = document.querySelectorAll(".dot");
+
+
+    function showSlide(index) {
+
+        if (index >= slides.length) {
+
+            currentSlide = 0;
+
+        }
+
+        else if (index < 0) {
+
+            currentSlide = slides.length - 1;
+
+        }
+
+        else {
+
+            currentSlide = index;
+
+        }
+
+
+        slides.forEach(function(slide) {
+
+            slide.classList.remove("active");
+
+        });
+
+
+        dots.forEach(function(dot) {
+
+            dot.classList.remove("active");
+
+        });
+
+
+        slides[currentSlide].classList.add("active");
+
+        dots[currentSlide].classList.add("active");
+
+    }
+
+
+
+    function changeSlide(direction) {
+
+        showSlide(currentSlide + direction);
+
+    }
+
+
+
+    function goToSlide(index) {
+
+        showSlide(index);
+
+    }
+
+
+
+    /* Automatically change image every 5 seconds */
+
+    setInterval(function() {
+
+        changeSlide(1);
+
+    }, 5000);
+
+
+</script>
+
+
+</body>
+
+</html>
+```
