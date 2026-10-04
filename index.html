@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Your Restaurant</title>
+    <title>Banaras Dhaba</title>
 
     <style>
 
@@ -61,36 +61,53 @@
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0,0,0,0.10),
-                    rgba(0,0,0,0.70)
+                    rgba(0,0,0,0.15),
+                    rgba(0,0,0,0.60)
                 );
         }
 
-        /* TEXT */
+        /* FIRST SLIDE TEXT */
 
         .caption {
             position: absolute;
+
             z-index: 2;
 
-            left: 8%;
-            bottom: 16%;
+            top: 50%;
+            left: 50%;
 
-            max-width: 700px;
+            transform: translate(-50%, -50%);
+
+            width: 90%;
+            max-width: 900px;
+
+            text-align: center;
 
             color: white;
         }
 
         .caption h1 {
-            font-size: clamp(36px, 5vw, 70px);
-            font-weight: 500;
-            letter-spacing: 1px;
+            font-size: clamp(40px, 6vw, 78px);
 
-            margin-bottom: 15px;
+            font-weight: 500;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+
+            text-shadow:
+                0 2px 8px rgba(0,0,0,0.6);
         }
 
         .caption p {
-            font-size: clamp(17px, 2vw, 24px);
+            font-size: clamp(18px, 2.3vw, 28px);
+
             line-height: 1.5;
+
+            letter-spacing: 0.5px;
+
+            text-shadow:
+                0 2px 6px rgba(0,0,0,0.6);
         }
 
         /* ARROWS */
@@ -100,6 +117,7 @@
             position: absolute;
 
             top: 50%;
+
             transform: translateY(-50%);
 
             z-index: 5;
@@ -108,9 +126,10 @@
             height: 50px;
 
             border: none;
+
             border-radius: 50%;
 
-            background: rgba(0,0,0,0.45);
+            background: rgba(0,0,0,0.40);
 
             color: white;
 
@@ -118,12 +137,14 @@
 
             cursor: pointer;
 
-            transition: background 0.3s;
+            transition:
+                background 0.3s,
+                transform 0.3s;
         }
 
         .prev:hover,
         .next:hover {
-            background: rgba(0,0,0,0.80);
+            background: rgba(0,0,0,0.75);
         }
 
         .prev {
@@ -134,14 +155,14 @@
             right: 25px;
         }
 
-        /* DOTS */
+        /* NAVIGATION DOTS */
 
         .dots {
             position: absolute;
 
             z-index: 5;
 
-            bottom: 30px;
+            bottom: 28px;
 
             left: 50%;
 
@@ -162,11 +183,14 @@
 
             cursor: pointer;
 
-            transition: transform 0.3s;
+            transition:
+                transform 0.3s,
+                background 0.3s;
         }
 
         .dot.active {
             background: white;
+
             transform: scale(1.3);
         }
 
@@ -179,24 +203,29 @@
             }
 
             .caption {
-                left: 7%;
-                right: 7%;
-                bottom: 14%;
+                width: 88%;
             }
 
             .caption h1 {
-                font-size: 36px;
+                font-size: 40px;
+
+                letter-spacing: 1px;
+
+                margin-bottom: 12px;
             }
 
             .caption p {
-                font-size: 16px;
+                font-size: 17px;
+
+                line-height: 1.4;
             }
 
             .prev,
             .next {
                 width: 40px;
                 height: 40px;
-                font-size: 22px;
+
+                font-size: 23px;
             }
 
             .prev {
@@ -205,6 +234,17 @@
 
             .next {
                 right: 12px;
+            }
+
+            .dots {
+                bottom: 20px;
+
+                gap: 7px;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
             }
         }
 
@@ -219,19 +259,22 @@
 <div class="carousel">
 
 
-    <!-- SLIDE 1 -->
+    <!-- ================================================= -->
+    <!-- SLIDE 1 - ONLY SLIDE WITH TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide active">
 
-        <img src="front.jpeg" alt="Restaurant exterior">
+        <img
+            src="front.jpeg"
+            alt="Banaras Dhaba">
 
         <div class="caption">
 
-            <h1>Welcome</h1>
+            <h1>Banaras Dhaba</h1>
 
             <p>
-                An elegant dining experience
-                crafted for every occasion.
+                Where Every Occasion Becomes a Feast
             </p>
 
         </div>
@@ -240,211 +283,151 @@
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 2 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="front2.jpeg" alt="Restaurant exterior">
-
-        <div class="caption">
-
-            <h1>Discover Our Restaurant</h1>
-
-            <p>
-                Where beautiful surroundings
-                meet exceptional flavours.
-            </p>
-
-        </div>
+        <img
+            src="front2.jpeg"
+            alt="Banaras Dhaba">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 3 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="front3.jpeg" alt="Restaurant exterior">
-
-        <div class="caption">
-
-            <h1>A Place to Gather</h1>
-
-            <p>
-                Perfect for intimate dinners,
-                celebrations and special occasions.
-            </p>
-
-        </div>
+        <img
+            src="front3.jpeg"
+            alt="Banaras Dhaba">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 4 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="inner.jpeg" alt="Indoor dining">
-
-        <div class="caption">
-
-            <h1>Indoor Dining</h1>
-
-            <p>
-                Relax in our warm and inviting
-                indoor dining space.
-            </p>
-
-        </div>
+        <img
+            src="inner.jpeg"
+            alt="Banaras Dhaba indoor dining">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 5 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="inner2.jpeg" alt="Indoor restaurant">
-
-        <div class="caption">
-
-            <h1>Beautiful Ambience</h1>
-
-            <p>
-                Thoughtfully designed surroundings
-                for a memorable dining experience.
-            </p>
-
-        </div>
+        <img
+            src="inner2.jpeg"
+            alt="Banaras Dhaba indoor dining">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 6 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="inner3.jpeg" alt="Restaurant interior">
-
-        <div class="caption">
-
-            <h1>Made for Moments</h1>
-
-            <p>
-                Enjoy delicious food in a
-                comfortable and elegant setting.
-            </p>
-
-        </div>
+        <img
+            src="inner3.jpeg"
+            alt="Banaras Dhaba indoor dining">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 7 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="inner4.jpeg" alt="Restaurant interior">
-
-        <div class="caption">
-
-            <h1>Come, Dine & Savour</h1>
-
-            <p>
-                Every meal is an opportunity
-                to create a lasting memory.
-            </p>
-
-        </div>
+        <img
+            src="inner4.jpeg"
+            alt="Banaras Dhaba indoor dining">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 8 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="out1.jpeg" alt="Alfresco dining">
-
-        <div class="caption">
-
-            <h1>Alfresco Dining</h1>
-
-            <p>
-                Dine under the open sky
-                and enjoy a relaxed atmosphere.
-            </p>
-
-        </div>
+        <img
+            src="out1.jpeg"
+            alt="Banaras Dhaba alfresco dining">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 9 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="out2.jpeg" alt="Outdoor dining">
-
-        <div class="caption">
-
-            <h1>Under the Open Sky</h1>
-
-            <p>
-                An unforgettable outdoor dining
-                experience for every occasion.
-            </p>
-
-        </div>
+        <img
+            src="out2.jpeg"
+            alt="Banaras Dhaba outdoor dining">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 10 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="out3.jpeg" alt="Outdoor restaurant">
-
-        <div class="caption">
-
-            <h1>Relax. Dine. Enjoy.</h1>
-
-            <p>
-                Choose your setting and
-                make your dining experience your own.
-            </p>
-
-        </div>
+        <img
+            src="out3.jpeg"
+            alt="Banaras Dhaba outdoor dining">
 
     </div>
 
 
 
+    <!-- ================================================= -->
     <!-- SLIDE 11 -->
+    <!-- NO TEXT -->
+    <!-- ================================================= -->
 
     <div class="slide">
 
-        <img src="out4.jpeg" alt="Outdoor dining area">
-
-        <div class="caption">
-
-            <h1>Your Table Awaits</h1>
-
-            <p>
-                Come for the ambience.
-                Stay for the flavours.
-            </p>
-
-        </div>
+        <img
+            src="out4.jpeg"
+            alt="Banaras Dhaba outdoor dining">
 
     </div>
 
@@ -452,19 +435,31 @@
 
     <!-- PREVIOUS BUTTON -->
 
-    <button class="prev" onclick="changeSlide(-1)">
+    <button
+        class="prev"
+        onclick="changeSlide(-1)"
+        aria-label="Previous image">
+
         ‹
+
     </button>
+
 
 
     <!-- NEXT BUTTON -->
 
-    <button class="next" onclick="changeSlide(1)">
+    <button
+        class="next"
+        onclick="changeSlide(1)"
+        aria-label="Next image">
+
         ›
+
     </button>
 
 
-    <!-- DOTS -->
+
+    <!-- NAVIGATION DOTS -->
 
     <div class="dots">
 
@@ -499,11 +494,17 @@
 
 <script>
 
+    /* ==========================================
+       SLIDE CONTROL
+       ========================================== */
+
     let currentSlide = 0;
 
-    const slides = document.querySelectorAll(".slide");
+    const slides =
+        document.querySelectorAll(".slide");
 
-    const dots = document.querySelectorAll(".dot");
+    const dots =
+        document.querySelectorAll(".dot");
 
 
     function showSlide(index) {
@@ -541,21 +542,28 @@
         });
 
 
-        slides[currentSlide].classList.add("active");
+        slides[currentSlide]
+            .classList.add("active");
 
-        dots[currentSlide].classList.add("active");
+
+        dots[currentSlide]
+            .classList.add("active");
 
     }
 
 
+    /* NEXT / PREVIOUS */
 
     function changeSlide(direction) {
 
-        showSlide(currentSlide + direction);
+        showSlide(
+            currentSlide + direction
+        );
 
     }
 
 
+    /* DOT NAVIGATION */
 
     function goToSlide(index) {
 
@@ -564,8 +572,10 @@
     }
 
 
-
-    /* Automatically change image every 5 seconds */
+    /* ==========================================
+       AUTOMATIC SLIDESHOW
+       5 SECONDS PER IMAGE
+       ========================================== */
 
     setInterval(function() {
 
