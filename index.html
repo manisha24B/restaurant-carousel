@@ -42,10 +42,18 @@
 
         .carousel {
             position: relative;
+
             width: 100%;
+
+            /*
+             * Large desktop hero
+             */
             height: min(100vh, 820px);
+
             min-height: 520px;
+
             overflow: hidden;
+
             background: #111;
         }
 
@@ -56,9 +64,11 @@
 
         .slide {
             position: absolute;
+
             inset: 0;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
@@ -72,6 +82,7 @@
 
         .slide.active {
             opacity: 1;
+
             pointer-events: auto;
         }
 
@@ -87,10 +98,14 @@
             display: block;
 
             object-fit: contain;
+
             object-position: center center;
 
             background: #111;
 
+            /*
+             * Subtle premium zoom
+             */
             transform: scale(1.02);
 
             transition:
@@ -110,11 +125,13 @@
             content: "";
 
             position: absolute;
+
             inset: 0;
 
             pointer-events: none;
 
             background:
+
                 linear-gradient(
                     to bottom,
                     rgba(0,0,0,0.15) 0%,
@@ -141,6 +158,7 @@
                 translate(-50%, -50%);
 
             width: 92%;
+
             max-width: 1000px;
 
             text-align: center;
@@ -187,9 +205,11 @@
         ========================================= */
 
         .hero-buttons {
+
             display: flex;
 
             justify-content: center;
+
             align-items: center;
 
             gap: 14px;
@@ -199,9 +219,11 @@
 
 
         .hero-button {
+
             display: inline-flex;
 
             justify-content: center;
+
             align-items: center;
 
             min-width: 145px;
@@ -233,13 +255,13 @@
 
             transition:
                 background 0.3s ease,
-                color 0.3s ease,
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
         }
 
 
         .hero-button:hover {
+
             background:
                 rgba(255,255,255,0.92);
 
@@ -260,6 +282,7 @@
 
         .prev,
         .next {
+
             position: absolute;
 
             top: 50%;
@@ -298,6 +321,7 @@
 
         .prev:hover,
         .next:hover {
+
             background:
                 rgba(0,0,0,0.75);
 
@@ -321,6 +345,7 @@
         ========================================= */
 
         .dots {
+
             position: absolute;
 
             z-index: 7;
@@ -349,6 +374,7 @@
 
 
         .dot {
+
             width: 8px;
             height: 8px;
 
@@ -366,6 +392,7 @@
 
 
         .dot.active {
+
             background: white;
 
             transform:
@@ -380,14 +407,20 @@
         @media (max-width: 700px) {
 
             .carousel {
+
+                /*
+                 * 16:9 mobile hero
+                 */
                 height: 56.25vw;
 
                 min-height: 330px;
+
                 max-height: 600px;
             }
 
 
             .slide img {
+
                 object-fit: contain;
 
                 transform: scale(1.01);
@@ -395,16 +428,19 @@
 
 
             .slide.active img {
+
                 transform: scale(1.03);
             }
 
 
             .caption {
+
                 width: 90%;
             }
 
 
             .caption h1 {
+
                 font-size:
                     clamp(30px, 9vw, 48px);
 
@@ -415,6 +451,7 @@
 
 
             .caption p {
+
                 font-size:
                     clamp(14px, 4vw, 18px);
 
@@ -425,11 +462,13 @@
 
 
             .hero-buttons {
+
                 gap: 9px;
             }
 
 
             .hero-button {
+
                 min-width: 120px;
 
                 padding: 10px 17px;
@@ -440,6 +479,7 @@
 
             .prev,
             .next {
+
                 width: 36px;
                 height: 36px;
 
@@ -458,6 +498,7 @@
 
 
             .dots {
+
                 bottom: 10px;
 
                 gap: 6px;
@@ -467,6 +508,7 @@
 
 
             .dot {
+
                 width: 7px;
                 height: 7px;
             }
@@ -480,6 +522,7 @@
         @media (max-width: 400px) {
 
             .carousel {
+
                 height: 56.25vw;
 
                 min-height: 300px;
@@ -487,6 +530,7 @@
 
 
             .caption h1 {
+
                 font-size: 29px;
 
                 letter-spacing: 1px;
@@ -494,6 +538,7 @@
 
 
             .caption p {
+
                 font-size: 13px;
 
                 margin-bottom: 15px;
@@ -501,6 +546,7 @@
 
 
             .hero-button {
+
                 min-width: 105px;
 
                 padding: 9px 13px;
@@ -511,6 +557,7 @@
 
             .prev,
             .next {
+
                 width: 31px;
                 height: 31px;
 
@@ -561,34 +608,32 @@
 
                 <div class="hero-buttons">
 
-
-                    <!-- =========================
-                         SWIGGY ORDER BUTTON
-                    ========================= -->
+                    <!--
+                    Replace # with your actual
+                    Swiggy/order link later.
+                    -->
 
                     <a
-                        href="https://www.google.com/searchviewer/42?cvd=CLw_EicKJeICIjIgEhkiF9LX29IPEQoNL2cvMTFsNXFzMjhzNhgBOgMI8A0%3D&g2lbs=AEzIGDvH6G10Wjxy27zRuREfSk-flhZ0dhF21sSHCjYZb59n5nEk4hPOyrq2SdFu55fCFpKwSGdB&hl=en-IN&gl=in&fo_m=MfohQo559jFvMUOzJVpjPL1YMfZ3bInYwBDuMfaXTPp5KXh-&utm_source=tactile&gei=m2WgavClIbShseMPrv-0iQI&ei=m2WgavClIbShseMPrv-0iQI&fo_s=OA&opi=79508299&orderType=1&ebb=1&cs=0&foub=mcpp"
-                        class="hero-button"
-                        target="_blank"
-                        rel="noopener">
+                        href="#"
+                        class="hero-button">
 
                         Order Now
 
                     </a>
 
 
-                    <!-- =========================
-                         CATERING PHONE BUTTON
-                    ========================= -->
+                    <!--
+                    Replace # with your
+                    catering/contact link later.
+                    -->
 
                     <a
-                        href="tel:+918777463671"
+                        href="#"
                         class="hero-button">
 
                         Catering
 
                     </a>
-
 
                 </div>
 
