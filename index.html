@@ -8,247 +8,233 @@
 
     <title>Banaras Dhaba</title>
 
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Georgia, "Times New Roman", serif;
-            background: #111;
-        }
-
-        /* MAIN CAROUSEL */
-
-        .carousel {
-            position: relative;
-            width: 100%;
-            height: 650px;
-            overflow: hidden;
-            background: #111;
-        }
-
-        /* SLIDES */
-
-        .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* DARK OVERLAY */
-
-        .slide::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0.15),
-                    rgba(0,0,0,0.60)
-                );
-        }
-
-        /* FIRST SLIDE TEXT */
-
-        .caption {
-            position: absolute;
-
-            z-index: 2;
-
-            top: 50%;
-            left: 50%;
-
-            transform: translate(-50%, -50%);
-
-            width: 90%;
-            max-width: 900px;
-
-            text-align: center;
-
-            color: white;
-        }
-
-        .caption h1 {
-            font-size: clamp(40px, 6vw, 78px);
-
-            font-weight: 500;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 18px;
-
-            text-shadow:
-                0 2px 8px rgba(0,0,0,0.6);
-        }
-
-        .caption p {
-            font-size: clamp(18px, 2.3vw, 28px);
-
-            line-height: 1.5;
-
-            letter-spacing: 0.5px;
-
-            text-shadow:
-                0 2px 6px rgba(0,0,0,0.6);
-        }
-
-        /* ARROWS */
-
-        .prev,
-        .next {
-            position: absolute;
-
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            z-index: 5;
-
-            width: 50px;
-            height: 50px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: rgba(0,0,0,0.40);
-
-            color: white;
-
-            font-size: 30px;
-
-            cursor: pointer;
-
-            transition:
-                background 0.3s,
-                transform 0.3s;
-        }
-
-        .prev:hover,
-        .next:hover {
-            background: rgba(0,0,0,0.75);
-        }
-
-        .prev {
-            left: 25px;
-        }
-
-        .next {
-            right: 25px;
-        }
-
-        /* NAVIGATION DOTS */
-
-        .dots {
-            position: absolute;
-
-            z-index: 5;
-
-            bottom: 28px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            display: flex;
-
-            gap: 9px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-
-            border-radius: 50%;
-
-            background: rgba(255,255,255,0.55);
-
-            cursor: pointer;
-
-            transition:
-                transform 0.3s,
-                background 0.3s;
-        }
-
-        .dot.active {
-            background: white;
-
-            transform: scale(1.3);
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 700px) {
-
-            .carousel {
-                height: 500px;
-            }
-
-            .caption {
-                width: 88%;
-            }
-
-            .caption h1 {
-                font-size: 40px;
-
-                letter-spacing: 1px;
-
-                margin-bottom: 12px;
-            }
-
-            .caption p {
-                font-size: 17px;
-
-                line-height: 1.4;
-            }
-
-            .prev,
-            .next {
-                width: 40px;
-                height: 40px;
-
-                font-size: 23px;
-            }
-
-            .prev {
-                left: 12px;
-            }
-
-            .next {
-                right: 12px;
-            }
-
-            .dots {
-                bottom: 20px;
-
-                gap: 7px;
-            }
-
-            .dot {
-                width: 8px;
-                height: 8px;
-            }
-        }
-
-    </style>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #111;
+    overflow-x: hidden;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    background: #111;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.10),
+        rgba(0,0,0,0.50)
+    );
+    pointer-events: none;
+}
+
+/* CENTER TEXT ON FIRST IMAGE */
+.caption {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    color: white;
+}
+
+.caption h1 {
+    font-size: clamp(40px, 6vw, 78px);
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.caption p {
+    font-size: clamp(18px, 2.3vw, 28px);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* ARROWS */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.40);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+    background: rgba(0,0,0,0.75);
+}
+
+.prev {
+    left: 25px;
+}
+
+.next {
+    right: 25px;
+}
+
+/* DOTS */
+.dots {
+    position: absolute;
+    z-index: 5;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 9px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+
+/* =========================
+   MOBILE VERSION
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .carousel {
+        width: 100%;
+        height: 56.25vw;
+        min-height: 220px;
+        max-height: 400px;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .caption {
+        width: 90%;
+    }
+
+    .caption h1 {
+        font-size: 36px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .caption p {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .prev,
+    .next {
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .dots {
+        bottom: 12px;
+        gap: 6px;
+    }
+
+    .dot {
+        width: 7px;
+        height: 7px;
+    }
+}
+
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 400px) {
+
+    .carousel {
+        height: 56.25vw;
+        min-height: 200px;
+        max-height: 300px;
+    }
+
+    .caption h1 {
+        font-size: 30px;
+    }
+
+    .caption p {
+        font-size: 14px;
+    }
+
+    .prev,
+    .next {
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+}
+</style>
+        
 
 </head>
 
