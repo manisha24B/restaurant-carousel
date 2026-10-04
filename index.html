@@ -6,235 +6,519 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Banaras Dhaba</title>
+    <title>Banaras Dhaba | Where Every Occasion Becomes a Feast</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <meta name="description"
+          content="Banaras Dhaba – delicious food, indoor and alfresco dining, catering services and celebrations.">
 
-body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #111;
-    overflow-x: hidden;
-}
+    <style>
 
-.carousel {
-    position: relative;
-    width: 100%;
-    height: 650px;
-    overflow: hidden;
-    background: #111;
-}
+        /* =========================================
+           RESET
+        ========================================= */
 
-.slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.slide.active {
-    opacity: 1;
-}
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-.slide::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.10),
-        rgba(0,0,0,0.50)
-    );
-    pointer-events: none;
-}
-
-/* CENTER TEXT ON FIRST IMAGE */
-.caption {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 900px;
-    text-align: center;
-    color: white;
-}
-
-.caption h1 {
-    font-size: clamp(40px, 6vw, 78px);
-    font-weight: 500;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-}
-
-.caption p {
-    font-size: clamp(18px, 2.3vw, 28px);
-    line-height: 1.5;
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-
-/* ARROWS */
-.prev,
-.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.40);
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.prev:hover,
-.next:hover {
-    background: rgba(0,0,0,0.75);
-}
-
-.prev {
-    left: 25px;
-}
-
-.next {
-    right: 25px;
-}
-
-/* DOTS */
-.dots {
-    position: absolute;
-    z-index: 5;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 9px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.55);
-    cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.dot.active {
-    background: white;
-    transform: scale(1.3);
-}
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #111;
+            overflow-x: hidden;
+        }
 
 
-/* =========================
-   MOBILE VERSION
-   ========================= */
+        /* =========================================
+           HERO / CAROUSEL
+        ========================================= */
 
-@media (max-width: 700px) {
-
-    .carousel {
-        width: 100%;
-        height: 56.25vw;
-        min-height: 220px;
-        max-height: 400px;
-    }
-
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    .caption {
-        width: 90%;
-    }
-
-    .caption h1 {
-        font-size: 36px;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-
-    .caption p {
-        font-size: 16px;
-        line-height: 1.35;
-    }
-
-    .prev,
-    .next {
-        width: 36px;
-        height: 36px;
-        font-size: 22px;
-    }
-
-    .prev {
-        left: 10px;
-    }
-
-    .next {
-        right: 10px;
-    }
-
-    .dots {
-        bottom: 12px;
-        gap: 6px;
-    }
-
-    .dot {
-        width: 7px;
-        height: 7px;
-    }
-}
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: min(100vh, 820px);
+            min-height: 520px;
+            overflow: hidden;
+            background: #111;
+        }
 
 
-/* VERY SMALL PHONES */
+        /* =========================================
+           SLIDE
+        ========================================= */
 
-@media (max-width: 400px) {
+        .slide {
+            position: absolute;
+            inset: 0;
 
-    .carousel {
-        height: 56.25vw;
-        min-height: 200px;
-        max-height: 300px;
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    .caption h1 {
-        font-size: 30px;
-    }
+            opacity: 0;
 
-    .caption p {
-        font-size: 14px;
-    }
+            transition:
+                opacity 1.4s ease-in-out;
 
-    .prev,
-    .next {
-        width: 32px;
-        height: 32px;
-        font-size: 20px;
-    }
-}
-</style>
-        
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+
+        /* =========================================
+           IMAGE
+        ========================================= */
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: contain;
+            object-position: center center;
+
+            background: #111;
+
+            transform: scale(1.02);
+
+            transition:
+                transform 6s ease;
+        }
+
+        .slide.active img {
+            transform: scale(1.06);
+        }
+
+
+        /* =========================================
+           DARK GRADIENT
+        ========================================= */
+
+        .slide::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.15) 0%,
+                    rgba(0,0,0,0.05) 35%,
+                    rgba(0,0,0,0.35) 70%,
+                    rgba(0,0,0,0.72) 100%
+                );
+        }
+
+
+        /* =========================================
+           HERO CONTENT
+        ========================================= */
+
+        .caption {
+            position: absolute;
+
+            z-index: 3;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            width: 92%;
+            max-width: 1000px;
+
+            text-align: center;
+
+            color: white;
+        }
+
+
+        .caption h1 {
+            font-size:
+                clamp(44px, 7vw, 92px);
+
+            font-weight: 500;
+
+            letter-spacing: 3px;
+
+            line-height: 1.05;
+
+            margin-bottom: 18px;
+
+            text-shadow:
+                0 3px 10px rgba(0,0,0,0.8),
+                0 5px 20px rgba(0,0,0,0.5);
+        }
+
+
+        .caption p {
+            font-size:
+                clamp(18px, 2.5vw, 30px);
+
+            letter-spacing: 1px;
+
+            line-height: 1.5;
+
+            margin-bottom: 30px;
+
+            text-shadow:
+                0 2px 8px rgba(0,0,0,0.8);
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .hero-button {
+            display: inline-flex;
+
+            justify-content: center;
+            align-items: center;
+
+            min-width: 145px;
+
+            padding: 13px 25px;
+
+            border-radius: 30px;
+
+            border: 1px solid
+                rgba(255,255,255,0.85);
+
+            background:
+                rgba(0,0,0,0.35);
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            letter-spacing: 0.5px;
+
+            backdrop-filter: blur(4px);
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .hero-button:hover {
+            background:
+                rgba(255,255,255,0.92);
+
+            color: #111;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 6px 20px
+                rgba(0,0,0,0.35);
+        }
+
+
+        /* =========================================
+           ARROWS
+        ========================================= */
+
+        .prev,
+        .next {
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            z-index: 6;
+
+            width: 50px;
+            height: 50px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0,0,0,0.35);
+
+            color: white;
+
+            font-size: 32px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .prev:hover,
+        .next:hover {
+            background:
+                rgba(0,0,0,0.75);
+
+            transform:
+                translateY(-50%)
+                scale(1.08);
+        }
+
+
+        .prev {
+            left: 25px;
+        }
+
+        .next {
+            right: 25px;
+        }
+
+
+        /* =========================================
+           DOTS
+        ========================================= */
+
+        .dots {
+            position: absolute;
+
+            z-index: 7;
+
+            bottom: 24px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            display: flex;
+
+            gap: 8px;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(0,0,0,0.25);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+
+        .dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.55);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .dot.active {
+            background: white;
+
+            transform:
+                scale(1.35);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .carousel {
+                height: 56.25vw;
+
+                min-height: 330px;
+                max-height: 600px;
+            }
+
+
+            .slide img {
+                object-fit: contain;
+
+                transform: scale(1.01);
+            }
+
+
+            .slide.active img {
+                transform: scale(1.03);
+            }
+
+
+            .caption {
+                width: 90%;
+            }
+
+
+            .caption h1 {
+                font-size:
+                    clamp(30px, 9vw, 48px);
+
+                letter-spacing: 1.5px;
+
+                margin-bottom: 10px;
+            }
+
+
+            .caption p {
+                font-size:
+                    clamp(14px, 4vw, 18px);
+
+                line-height: 1.35;
+
+                margin-bottom: 20px;
+            }
+
+
+            .hero-buttons {
+                gap: 9px;
+            }
+
+
+            .hero-button {
+                min-width: 120px;
+
+                padding: 10px 17px;
+
+                font-size: 14px;
+            }
+
+
+            .prev,
+            .next {
+                width: 36px;
+                height: 36px;
+
+                font-size: 23px;
+            }
+
+
+            .prev {
+                left: 8px;
+            }
+
+
+            .next {
+                right: 8px;
+            }
+
+
+            .dots {
+                bottom: 10px;
+
+                gap: 6px;
+
+                padding: 6px 9px;
+            }
+
+
+            .dot {
+                width: 7px;
+                height: 7px;
+            }
+        }
+
+
+        /* =========================================
+           SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 400px) {
+
+            .carousel {
+                height: 56.25vw;
+
+                min-height: 300px;
+            }
+
+
+            .caption h1 {
+                font-size: 29px;
+
+                letter-spacing: 1px;
+            }
+
+
+            .caption p {
+                font-size: 13px;
+
+                margin-bottom: 15px;
+            }
+
+
+            .hero-button {
+                min-width: 105px;
+
+                padding: 9px 13px;
+
+                font-size: 13px;
+            }
+
+
+            .prev,
+            .next {
+                width: 31px;
+                height: 31px;
+
+                font-size: 20px;
+            }
+        }
+
+    </style>
 
 </head>
 
@@ -242,321 +526,514 @@ body {
 <body>
 
 
-<div class="carousel">
+    <!-- =========================================
+         BANARAS DHABA HERO CAROUSEL
+    ========================================= -->
+
+    <div
+        class="carousel"
+        id="carousel">
 
 
-    <!-- ================================================= -->
-    <!-- SLIDE 1 - ONLY SLIDE WITH TEXT -->
-    <!-- ================================================= -->
+        <!-- =====================================
+             SLIDE 1
+             TEXT + BUTTONS
+        ===================================== -->
 
-    <div class="slide active">
+        <div class="slide active">
 
-        <img
-            src="front.jpeg"
-            alt="Banaras Dhaba">
+            <img
+                src="front.jpeg"
+                alt="Banaras Dhaba restaurant">
 
-        <div class="caption">
 
-            <h1>Banaras Dhaba</h1>
+            <div class="caption">
 
-            <p>
-                Where Every Occasion Becomes a Feast
-            </p>
+                <h1>
+                    Banaras Dhaba
+                </h1>
+
+
+                <p>
+                    Where Every Occasion Becomes a Feast
+                </p>
+
+
+                <div class="hero-buttons">
+
+
+                    <!-- =========================
+                         SWIGGY ORDER BUTTON
+                    ========================= -->
+
+                    <a
+                        href="https://www.google.com/searchviewer/42?cvd=CLw_EicKJeICIjIgEhkiF9LX29IPEQoNL2cvMTFsNXFzMjhzNhgBOgMI8A0%3D&g2lbs=AEzIGDvH6G10Wjxy27zRuREfSk-flhZ0dhF21sSHCjYZb59n5nEk4hPOyrq2SdFu55fCFpKwSGdB&hl=en-IN&gl=in&fo_m=MfohQo559jFvMUOzJVpjPL1YMfZ3bInYwBDuMfaXTPp5KXh-&utm_source=tactile&gei=m2WgavClIbShseMPrv-0iQI&ei=m2WgavClIbShseMPrv-0iQI&fo_s=OA&opi=79508299&orderType=1&ebb=1&cs=0&foub=mcpp"
+                        class="hero-button"
+                        target="_blank"
+                        rel="noopener">
+
+                        Order Now
+
+                    </a>
+
+
+                    <!-- =========================
+                         CATERING PHONE BUTTON
+                    ========================= -->
+
+                    <a
+                        href="tel:+918777463671"
+                        class="hero-button">
+
+                        Catering
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 2
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="front2.jpeg"
+                alt="Banaras Dhaba exterior">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 3
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="inner.jpeg"
+                alt="Banaras Dhaba indoor dining">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 4
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="inner2.jpeg"
+                alt="Banaras Dhaba indoor dining">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 5
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="inner3.jpeg"
+                alt="Banaras Dhaba indoor dining">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 6
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="inner4.jpeg"
+                alt="Banaras Dhaba indoor dining">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 7
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="out1.jpeg"
+                alt="Banaras Dhaba alfresco dining">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 8
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="out2.jpeg"
+                alt="Banaras Dhaba outdoor dining">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 9
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="out3.jpeg"
+                alt="Banaras Dhaba outdoor dining">
+
+        </div>
+
+
+        <!-- =====================================
+             SLIDE 10
+        ===================================== -->
+
+        <div class="slide">
+
+            <img
+                src="out4.jpeg"
+                alt="Banaras Dhaba outdoor dining">
+
+        </div>
+
+
+        <!-- =====================================
+             PREVIOUS
+        ===================================== -->
+
+        <button
+            class="prev"
+            onclick="changeSlide(-1)"
+            aria-label="Previous image">
+
+            &#10094;
+
+        </button>
+
+
+        <!-- =====================================
+             NEXT
+        ===================================== -->
+
+        <button
+            class="next"
+            onclick="changeSlide(1)"
+            aria-label="Next image">
+
+            &#10095;
+
+        </button>
+
+
+        <!-- =====================================
+             DOTS
+        ===================================== -->
+
+        <div class="dots">
+
+            <span
+                class="dot active"
+                onclick="goToSlide(0)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(1)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(2)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(3)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(4)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(5)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(6)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(7)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(8)">
+            </span>
+
+            <span
+                class="dot"
+                onclick="goToSlide(9)">
+            </span>
 
         </div>
 
     </div>
 
 
+    <script>
 
-    <!-- ================================================= -->
-    <!-- SLIDE 2 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
+        /* =========================================
+           SLIDE CONTROL
+        ========================================= */
 
-    <div class="slide">
+        let currentSlide = 0;
 
-        <img
-            src="front2.jpeg"
-            alt="Banaras Dhaba">
+        const slides =
+            document.querySelectorAll(".slide");
 
-    </div>
+        const dots =
+            document.querySelectorAll(".dot");
 
+        const carousel =
+            document.getElementById("carousel");
 
 
-    <!-- ================================================= -->
-    <!-- SLIDE 3 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
+        /* =========================================
+           AUTOMATIC SLIDESHOW
+        ========================================= */
 
-    <div class="slide">
+        let autoSlideTimer;
 
-        <img
-            src="inner.jpeg"
-            alt="Banaras Dhaba indoor dining">
+        const slideDuration = 5000;
 
-    </div>
 
+        function showSlide(index) {
 
+            if (index >= slides.length) {
 
-    <!-- ================================================= -->
-    <!-- SLIDE 4 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
+                currentSlide = 0;
 
-    <div class="slide">
+            }
 
-        <img
-            src="inner2.jpeg"
-            alt="Banaras Dhaba indoor dining">
+            else if (index < 0) {
 
-    </div>
+                currentSlide =
+                    slides.length - 1;
 
+            }
 
+            else {
 
-    <!-- ================================================= -->
-    <!-- SLIDE 5 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
+                currentSlide = index;
 
-    <div class="slide">
+            }
 
-        <img
-            src="inner3.jpeg"
-            alt="Banaras Dhaba indoor dining">
 
-    </div>
+            slides.forEach(function(slide) {
 
+                slide.classList.remove("active");
 
+            });
 
-    <!-- ================================================= -->
-    <!-- SLIDE 6 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
 
-    <div class="slide">
+            dots.forEach(function(dot) {
 
-        <img
-            src="inner4.jpeg"
-            alt="Banaras Dhaba indoor dining">
+                dot.classList.remove("active");
 
-    </div>
+            });
 
 
+            slides[currentSlide]
+                .classList.add("active");
 
-    <!-- ================================================= -->
-    <!-- SLIDE 7 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
 
-    <div class="slide">
-
-        <img
-            src="out1.jpeg"
-            alt="Banaras Dhaba alfresco dining">
-
-    </div>
-
-
-
-    <!-- ================================================= -->
-    <!-- SLIDE 8 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
-
-    <div class="slide">
-
-        <img
-            src="out2.jpeg"
-            alt="Banaras Dhaba outdoor dining">
-
-    </div>
-
-
-
-    <!-- ================================================= -->
-    <!-- SLIDE 9 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
-
-    <div class="slide">
-
-        <img
-            src="out3.jpeg"
-            alt="Banaras Dhaba outdoor dining">
-
-    </div>
-
-
-
-    <!-- ================================================= -->
-    <!-- SLIDE 10 -->
-    <!-- NO TEXT -->
-    <!-- ================================================= -->
-
-    <div class="slide">
-
-        <img
-            src="out4.jpeg"
-            alt="Banaras Dhaba outdoor dining">
-
-    </div>
-
-
-
-    <!-- PREVIOUS BUTTON -->
-
-    <button
-        class="prev"
-        onclick="changeSlide(-1)"
-        aria-label="Previous image">
-
-        ‹
-
-    </button>
-
-
-
-    <!-- NEXT BUTTON -->
-
-    <button
-        class="next"
-        onclick="changeSlide(1)"
-        aria-label="Next image">
-
-        ›
-
-    </button>
-
-
-
-    <!-- NAVIGATION DOTS -->
-
-    <div class="dots">
-
-        <span class="dot active" onclick="goToSlide(0)"></span>
-
-        <span class="dot" onclick="goToSlide(1)"></span>
-
-        <span class="dot" onclick="goToSlide(2)"></span>
-
-        <span class="dot" onclick="goToSlide(3)"></span>
-
-        <span class="dot" onclick="goToSlide(4)"></span>
-
-        <span class="dot" onclick="goToSlide(5)"></span>
-
-        <span class="dot" onclick="goToSlide(6)"></span>
-
-        <span class="dot" onclick="goToSlide(7)"></span>
-
-        <span class="dot" onclick="goToSlide(8)"></span>
-
-        <span class="dot" onclick="goToSlide(9)"></span>
-
-        <span class="dot" onclick="goToSlide(10)"></span>
-
-    </div>
-
-
-</div>
-
-
-
-<script>
-
-    /* ==========================================
-       SLIDE CONTROL
-       ========================================== */
-
-    let currentSlide = 0;
-
-    const slides =
-        document.querySelectorAll(".slide");
-
-    const dots =
-        document.querySelectorAll(".dot");
-
-
-    function showSlide(index) {
-
-        if (index >= slides.length) {
-
-            currentSlide = 0;
-
-        }
-
-        else if (index < 0) {
-
-            currentSlide = slides.length - 1;
-
-        }
-
-        else {
-
-            currentSlide = index;
+            dots[currentSlide]
+                .classList.add("active");
 
         }
 
 
-        slides.forEach(function(slide) {
+        /* =========================================
+           CHANGE SLIDE
+        ========================================= */
 
-            slide.classList.remove("active");
+        function changeSlide(direction) {
 
-        });
+            showSlide(
+                currentSlide + direction
+            );
 
+            restartAutoSlide();
 
-        dots.forEach(function(dot) {
-
-            dot.classList.remove("active");
-
-        });
-
-
-        slides[currentSlide]
-            .classList.add("active");
+        }
 
 
-        dots[currentSlide]
-            .classList.add("active");
+        /* =========================================
+           DOT NAVIGATION
+        ========================================= */
 
-    }
+        function goToSlide(index) {
+
+            showSlide(index);
+
+            restartAutoSlide();
+
+        }
 
 
-    /* NEXT / PREVIOUS */
+        /* =========================================
+           AUTO PLAY
+        ========================================= */
 
-    function changeSlide(direction) {
+        function startAutoSlide() {
 
-        showSlide(
-            currentSlide + direction
+            autoSlideTimer =
+                setInterval(function() {
+
+                    showSlide(
+                        currentSlide + 1
+                    );
+
+                }, slideDuration);
+
+        }
+
+
+        function stopAutoSlide() {
+
+            clearInterval(
+                autoSlideTimer
+            );
+
+        }
+
+
+        function restartAutoSlide() {
+
+            stopAutoSlide();
+
+            startAutoSlide();
+
+        }
+
+
+        /* =========================================
+           PAUSE ON DESKTOP HOVER
+        ========================================= */
+
+        carousel.addEventListener(
+            "mouseenter",
+            function() {
+
+                stopAutoSlide();
+
+            }
         );
 
-    }
+
+        carousel.addEventListener(
+            "mouseleave",
+            function() {
+
+                startAutoSlide();
+
+            }
+        );
 
 
-    /* DOT NAVIGATION */
+        /* =========================================
+           MOBILE SWIPE
+        ========================================= */
 
-    function goToSlide(index) {
+        let touchStartX = 0;
 
-        showSlide(index);
-
-    }
-
-
-    /* ==========================================
-       AUTOMATIC SLIDESHOW
-       5 SECONDS PER IMAGE
-       ========================================== */
-
-    setInterval(function() {
-
-        changeSlide(1);
-
-    }, 5000);
+        let touchEndX = 0;
 
 
-</script>
+        carousel.addEventListener(
+            "touchstart",
+            function(event) {
 
+                touchStartX =
+                    event.changedTouches[0].screenX;
+
+            },
+            { passive: true }
+        );
+
+
+        carousel.addEventListener(
+            "touchend",
+            function(event) {
+
+                touchEndX =
+                    event.changedTouches[0].screenX;
+
+                handleSwipe();
+
+            },
+            { passive: true }
+        );
+
+
+        function handleSwipe() {
+
+            const distance =
+                touchEndX - touchStartX;
+
+
+            if (Math.abs(distance) < 50) {
+
+                return;
+
+            }
+
+
+            if (distance < 0) {
+
+                changeSlide(1);
+
+            }
+
+            else {
+
+                changeSlide(-1);
+
+            }
+
+        }
+
+
+        /* =========================================
+           START SLIDESHOW
+        ========================================= */
+
+        startAutoSlide();
+
+    </script>
 
 </body>
 
